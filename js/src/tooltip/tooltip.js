@@ -16,16 +16,16 @@ import {
   makeArray,
   noop,
   typeCheckConfig
-} from './util/index'
+} from '../util/index'
 import {
   DefaultWhitelist,
   sanitizeHtml
-} from './util/sanitizer'
-import Data from './dom/data'
-import EventHandler from './dom/event-handler'
-import Manipulator from './dom/manipulator'
+} from '../util/sanitizer'
+import Data from '../dom/data'
+import EventHandler from '../dom/event-handler'
+import Manipulator from '../dom/manipulator'
 import Popper from 'popper.js'
-import SelectorEngine from './dom/selector-engine'
+import SelectorEngine from '../dom/selector-engine'
 
 /**
  * ------------------------------------------------------------------------
@@ -809,7 +809,7 @@ class Tooltip {
  * ------------------------------------------------------------------------
  * add .tooltip to jQuery only if jQuery is present
  */
-
+/* istanbul ignore if */
 if (typeof $ !== 'undefined') {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
   $.fn[NAME] = Tooltip._jQueryInterface
